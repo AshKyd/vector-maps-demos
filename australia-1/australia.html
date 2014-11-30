@@ -4,33 +4,35 @@
     <title>Leaflet GeoJSON Example</title>
     <meta charset="utf-8" />
     <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.7.1/leaflet.css" />
+    <script src="http://code.jquery.com/jquery-1.10.2.min.js"></script>
+    <script src="http://cdn.leafletjs.com/leaflet-0.7.1/leaflet.js"></script>
+    
     <style type="text/css">
+        #map{width: 600px; height: 400px;}
         .leaflet-container{background-color:#c5e8ff;}
     </style>
 </head>
 
 <body>
-    <div id="map" style="width: 600px; height: 400px"></div>
+    <div id="map"></div>
 
-    <script src="http://code.jquery.com/jquery-1.10.2.min.js"></script>
-    <script src="http://cdn.leafletjs.com/leaflet-0.7.1/leaflet.js"></script>
     <script>
         var myGeoJSONPath = 'aus.geo.json';
-        var myCustomStyle = {
-            stroke: false,
-            fill: true,
-            fillColor: '#fff',
-            fillOpacity: 1
-        }
-        $.getJSON(myGeoJSONPath,function(data){
+        // var myCustomStyle = {
+        //     stroke: false,
+        //     fill: true,
+        //     fillColor: '#fff',
+        //     fillOpacity: 1
+        // }
+        $.getJSON(myGeoJSONPath, function(data){
             var map = L.map('map').setView([39.74739, -105], 4);
     
             var geojson = L.geoJson(data, {
-                clickable: false,
-                style: myCustomStyle
+                // clickable: false,
+                // style: myCustomStyle
             }).addTo(map);
 
-            map.fitBounds(geojson.getBounds());
+            // map.fitBounds(geojson1.getBounds());
         })
     </script>
 </body>
